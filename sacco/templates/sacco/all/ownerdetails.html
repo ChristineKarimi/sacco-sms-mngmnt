@@ -1,0 +1,78 @@
+{%extends 'fleet_base/adminbase.html'%} 
+{% load staticfiles%} 
+{% load bootstrap3 %}
+<!-- Content block -->
+{%block content-header%}
+     <section class="content-header">
+      <h1>
+        Admin Dashboard<small>manage everything from here</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Admin</a></li>
+        <li class="active">Group Details</li>
+      </ol>
+    </section>
+{%endblock%}
+
+{% block content %}
+    <div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Member Details</h3>
+    </div>
+    <div class="box-body table-responsive with-border">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID Number</th>
+                    <th>Telephone Number</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                {% for owner in owner %}
+                <tr>
+                    <td>{{owner.user.first_name.capitalize}} {{owner.user.last_name.capitalize}}</td>
+                    <td>{{owner.nat_id}}</td>
+                    <td>{{owner.telephone}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+
+        
+
+    </div>
+
+    <div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Member's Matatu's</h3>
+    </div>
+    <div class="box-body table-responsive with-border">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Registration</th>
+                    <th>Capacity</th>
+                    <th>Status</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                {% for car_owned in car_owned %}
+                <tr>
+                    <td>{{car_owned.number_plate}}</td>
+                    <td>{{car_owned.capacity}}</td>
+                    <td>{% if car_owned.is_active == False %}<a href="" class="btn btn-danger btn-sm btn-flat btn-block"> Inactive</a>{%else%}<a href="" class="btn btn-success btn-sm btn-flat btn-block">Active</a>{%endif%}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+    </div>
+
+        
+
+    </div>
+{% endblock %}

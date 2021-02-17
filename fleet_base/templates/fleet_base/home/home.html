@@ -1,0 +1,25 @@
+{% extends "fleet_base/indexbase.html" %} 
+{% block nav %} 
+{% endblock %} 
+{% block content %}
+<div class="dave one col-md-4">
+  <div class="fleet-title">
+    <h1>Sacco</h1>
+    <h6>If you represent an established organisation, you can register here and setup your supervisors/users.</h6>
+    <a href="{% url 'fleet:sacco-signup' %}">
+    <button class="get_started" type="button" name="button">⮕ Get Started</button></a>
+    <p style="margin-top: 1vh;">Already have an account? <a href="{% url 'fleet:loginViews' %}">Log in!</a></p>
+  </div>
+</div>
+
+<div class="dave three col-md-4">
+  <div class="fleet-title">
+    <h1>Supervisor</h1>
+    <h6>If you are a supervisor who's organisation has been registered, you can register here and setup your profile.</h6>
+    <a href="{% url 'fleet:sup-signup' %}">
+    <button class="get_started" type="button" name="button">⮕ Get Started</button></a>
+    <p style="margin-top: 1vh;">Already have an account? <a href="{% url 'fleet:loginViews' %}">Log in!</a></p>
+  </div>
+</div>
+
+{% endblock %} 
